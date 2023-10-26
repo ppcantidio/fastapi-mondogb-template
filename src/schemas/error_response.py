@@ -2,7 +2,7 @@ from pydantic import BaseModel
 
 
 class ErrorResponse(BaseModel):
-    status: int
+    status_code: int
     detail: str
-    code: str
+    code_error: str
     title: str
