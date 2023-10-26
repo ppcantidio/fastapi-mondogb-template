@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from src.routers.v1 import user_router
+from ${{ values.module }}.routers.v1 import user_router
 
 
 def app_v1(app: FastAPI):
