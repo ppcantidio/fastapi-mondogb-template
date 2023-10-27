@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from src.errors.bad_request_err import BadRequestError
 from src.errors.forbidden_err import ForbiddenError
+from src.errors.unauthorized import Unauthorized
 from src.infra.handlers import errors_handlers
 from src.routers.v1 import user_router
 
@@ -16,6 +17,7 @@ def add_exception_handlers(app: FastAPI):
     app.add_exception_handler(exc_class_or_status_code=500, handler=errors_handlers.internal_server_error_handler)
     app.add_exception_handler(exc_class_or_status_code=BadRequestError, handler=errors_handlers.abstract_error_handler)
     app.add_exception_handler(exc_class_or_status_code=ForbiddenError, handler=errors_handlers.abstract_error_handler)
+    app.add_exception_handler(exc_class_or_status_code=Unauthorized, handler=errors_handlers.abstract_error_handler)
 
 
 def add_middlewares(app: FastAPI):
